@@ -1,0 +1,17 @@
+name: mealie
+
+services:
+  mealie:
+    image: hkotel/mealie:latest
+    container_name: mealie
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - ALLOW_SIGNUP=${ALLOW_SIGNUP}
+      - BASE_URL=${BASE_URL}
+    volumes:
+      - ./data:/app/data
+    ports:
+      - ${MEALIE_PORT}:9000
+    restart: unless-stopped
