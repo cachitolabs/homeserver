@@ -11,7 +11,7 @@ services:
       - ALLOW_SIGNUP=${ALLOW_SIGNUP}
       - BASE_URL=${BASE_URL}
     volumes:
-      - ./data:/app/data
+      - ./${CONFIG}:/app/data
     ports:
       - ${MEALIE_PORT}:9000
     restart: unless-stopped
