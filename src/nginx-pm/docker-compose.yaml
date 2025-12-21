@@ -1,0 +1,14 @@
+name: nginx-pm
+
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-pm
+    ports:
+      - '80:80'
+      - '81:81'
+      - '8443:443'
+    volumes:
+      - ./${CONFIG}:/data
+      - ./${CONFIG}:/etc/letsencrypt
+    restart: unless-stopped
